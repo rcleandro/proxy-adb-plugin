@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.rcleandro.proxyadb</id>
     <name>ProxyADB</name>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 
     <vendor email="sj.leandro@email.com" url="https://github.com/rcleandro">Carvalho</vendor>
 
@@ -17,20 +17,24 @@
             <li>🖥️ Preview the exact ADB command that will run</li>
             <li>💾 Persistent settings across IDE sessions</li>
         </ul>
-
-        <b>Usage:</b><br/>
-        Open the <i>ProxyADB</i> tool window (bottom panel), set your desired port,
-        and click <b>Enable Proxy</b>. Connect your Android device via USB with USB debugging enabled.
     ]]></description>
 
     <change-notes><![CDATA[
+<b>1.0.1</b>
+        <ul>
+            <li>Fixed build error.</li>
+            <li>Updated Kotlin JVM plugin to 2.1.0.</li>
+            <li>Updated IntelliJ Platform plugin to 2.14.0.</li>
+            <li>Updated kotlinx-coroutines-swing to 1.10.1.</li>
+            <li>Updated until-build restriction for better compatibility.</li>
+        </ul>
         <b>1.0.0</b>
         <ul>
             <li>Initial release</li>
         </ul>
     ]]></change-notes>
 
-    <idea-version since-build="242" until-build="251.*"/>
+    <idea-version since-build="242" until-build="261.*"/>
 
     <depends>com.intellij.modules.platform</depends>
     <depends>org.jetbrains.android</depends>
