@@ -1,0 +1,92 @@
+<idea-plugin>
+    <id>com.rcleandro.proxyadb</id>
+    <name>ProxyADB</name>
+    <version>1.0.0</version>
+
+    <vendor email="sj.leandro@email.com" url="https://github.com/rcleandro">Carvalho</vendor>
+
+    <description><![CDATA[
+        <b>ProxyADB</b> — Configure HTTP proxy on connected Android devices via ADB directly from Android Studio.<br/><br/>
+
+        <b>Features:</b>
+        <ul>
+            <li>🔍 Auto-detects your local machine's IP address</li>
+            <li>⚡ One-click enable/disable proxy on connected device</li>
+            <li>🔧 Configurable proxy port (default: 8888)</li>
+            <li>📡 Real-time ADB connection status</li>
+            <li>🖥️ Preview the exact ADB command that will run</li>
+            <li>💾 Persistent settings across IDE sessions</li>
+        </ul>
+
+        <b>Usage:</b><br/>
+        Open the <i>ProxyADB</i> tool window (bottom panel), set your desired port,
+        and click <b>Enable Proxy</b>. Connect your Android device via USB with USB debugging enabled.
+    ]]></description>
+
+    <change-notes><![CDATA[
+        <b>1.0.0</b>
+        <ul>
+            <li>Initial release</li>
+        </ul>
+    ]]></change-notes>
+
+    <idea-version since-build="242" until-build="251.*"/>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.android</depends>
+
+    <resource-bundle>messages.ProxyADBBundle</resource-bundle>
+
+    <extensions defaultExtensionNs="com.intellij">
+
+        <!-- Tool Window -->
+        <toolWindow
+            id="ADB proxy"
+            anchor="bottom"
+            secondary="false"
+            canCloseContents="false"
+            factoryClass="com.rcleandro.proxyadb.toolwindow.ProxyToolWindowFactory"
+            icon="/icons/proxy_icon.svg"
+            title="toolwindow.title"/>
+
+        <!-- Persistent Settings -->
+        <applicationService
+            serviceImplementation="com.rcleandro.proxyadb.settings.ProxySettings"/>
+
+        <!-- Settings Page under Tools -->
+        <applicationConfigurable
+            parentId="tools"
+            instance="com.rcleandro.proxyadb.settings.ProxySettingsConfigurable"
+            id="com.rcleandro.proxyadb.settings"
+            key="settings.title"/>
+
+        <!-- Notification Group -->
+        <notificationGroup
+            id="ProxyADB.Notifications"
+            displayType="BALLOON"/>
+
+    </extensions>
+
+    <actions>
+        <group id="ProxyADB.ActionGroup" text="toolwindow.title" popup="false">
+            <add-to-group group-id="AndroidToolsActionGroup" anchor="last"/>
+
+            <action
+                id="ProxyADB.Enable"
+                class="com.rcleandro.proxyadb.actions.EnableProxyAction"
+                text="action.enable.text"
+                description="action.enable.description"
+                icon="/icons/proxy_on.svg"/>
+
+            <action
+                id="ProxyADB.Disable"
+                class="com.rcleandro.proxyadb.actions.DisableProxyAction"
+                text="action.disable.text"
+                description="action.disable.description"
+                icon="/icons/proxy_off.svg"/>
+
+            <separator/>
+        </group>
+    </actions>
+
+</idea-plugin>

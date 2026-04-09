@@ -1,0 +1,28 @@
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local configuration
+local.properties
+*.pem
+*.p12
+
+# Plugin distribution
+*.zip
+*.jar
+
+# Project exclude paths
+/.intellijPlatform/
