@@ -2,6 +2,8 @@
 
 Plugin for **Android Studio** that simplifies HTTP proxy configuration on Android devices via ADB — directly from the IDE, no external tools needed.
 
+The project is available on the **IntelliJ Marketplace** and can be downloaded from: [https://plugins.jetbrains.com/plugin/31173-adb-proxy](https://plugins.jetbrains.com/plugin/31173-adb-proxy)
+
 ## ✨ Features
 
 - 🔍 **Automatic IP detection** — Identifies your local network IP (Wi-Fi/Ethernet)
